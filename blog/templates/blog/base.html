@@ -12,11 +12,17 @@
     </head>
     <body>
         <div class="page-header">
-            {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
-
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="top-menu"><span class="glyphicon glyphicon-log-out"></span></a>
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">&nbsp;</span></a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-log-in"></span></a>
+                {% endif %}
             <h1><a href="/">Austin's Django Blog</a></h1>
+                {% if user.is_authenticated %}
+                    <h2 class="top-menu-message">Welcome {{user.get_username}}!</h2>
+                {% endif %}
+
         </div>
         <div class="content container">
             <div class="row">
