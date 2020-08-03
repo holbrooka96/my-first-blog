@@ -71,3 +71,6 @@ button{
     justify-content: space-evenly;
     flex-direction: row;
 }
+.list-divider{
+    border-top: double .25em;
+}
